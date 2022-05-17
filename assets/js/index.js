@@ -9,6 +9,7 @@ const h1 = document.querySelector("h1");
 const resetButton = document.querySelector(".reset");
 const modeButtons = document.querySelectorAll(".mode");
 const easyButton = document.querySelector(".mode");
+const hardButton = document.querySelector(".mode-hard");
 
 //Iniciar:
 
@@ -57,7 +58,7 @@ function setupSquares() {
 
 function setupMode() {
 	for(let i = 0; i < modeButtons.length; i++) {
-		modeButtons[i].addEventListener("click", () => {
+		modeButtons[i].addEventListener("click", function () {
 			for (let i = 0; i < modeButtons.length; i++) {
 				modeButtons[i].classList.remove("selected");
 			}
@@ -66,9 +67,12 @@ function setupMode() {
 			if (this.textContent === "Fácil") {
 				numSquares = 3;
 			}
+			else if (this.textContent === "Médio") {
+				numSquares = 6;
+			}
             //HARD:
 			else {
-				numSquares = 6;
+				numSquares = 9;
 			}
             //Resetar apos trocar de modo:
 			reset();
